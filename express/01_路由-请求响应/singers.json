@@ -1,0 +1,73 @@
+{
+  "source": "TheAudioDB",
+  "sourceUrl": "https://theaudiodb.com/",
+  "count": 11,
+  "data": [
+    {
+      "id": "1",
+      "name": "Jay Chou",
+      "othername": "周杰倫, 周杰伦",
+      "pic": "https://r2.theaudiodb.com/images/media/artist/thumb/f6ok2l1666965614.jpg"
+    },
+    {
+      "id": "2",
+      "name": "JJ Lin",
+      "othername": "林俊傑, 林俊杰",
+      "pic": "https://r2.theaudiodb.com/images/media/artist/thumb/byw1vc1738227362.jpg"
+    },
+    {
+      "id": "3",
+      "name": "G.E.M.",
+      "othername": "鄧紫棋、邓紫棋",
+      "pic": "https://r2.theaudiodb.com/images/media/artist/thumb/snpjhz1700809409.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Eason Chan",
+      "othername": "陳奕迅",
+      "pic": "https://r2.theaudiodb.com/images/media/artist/thumb/kojg8i1742643446.jpg"
+    },
+    {
+      "id": "5",    
+      "name": "A-Lin",
+      "othername": "黄丽玲、黃麗玲",
+      "pic": "https://r2.theaudiodb.com/images/media/artist/thumb/vskgw01728562290.jpg"
+    },
+    {
+      "id": "6",
+      "name": "鄧麗君",
+      "othername": "Teresa Teng",
+      "pic": "https://r2.theaudiodb.com/images/media/artist/thumb/udbd5p1744856297.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Taylor Swift",
+      "othername": "",
+      "pic": "https://r2.theaudiodb.com/images/media/artist/thumb/k60sy91751894007.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Coldplay",
+      "othername": "",
+      "pic": "https://r2.theaudiodb.com/images/media/artist/thumb/uxrqxy1347913147.jpg"
+    },
+    {
+      "id": "9",
+      "name": "Adele",
+      "othername": "",
+      "pic": "https://r2.theaudiodb.com/images/media/artist/thumb/ey8rrw1729563469.jpg"
+    },
+    {
+      "id": "10",
+      "name": "Bruno Mars",
+      "othername": "Peter Gene Hernandez",
+      "pic": "https://r2.theaudiodb.com/images/media/artist/thumb/tuwvsr1359652285.jpg"
+    },
+    {
+      "id": "11", 
+      "name": "Ariana Grande",
+      "othername": "Ariana Grande Butera",
+      "pic": "https://r2.theaudiodb.com/images/media/artist/thumb/yy8zqo1636559141.jpg"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
  * Author  Giuly.Zhang
  * Date  2026-05-13 22:14:39
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-13 22:18:02
+ * LastEditTime  2026-05-13 22:42:36
  * Description  
 -->
 <!DOCTYPE html>
@@ -24,10 +24,11 @@
         <div class="col-xs-12 col-lg-8 col-lg-offset-2">
           <h2>添加记录</h2>
           <hr />
-          <form>
+          <form action="/list" method="post" >
             <div class="form-group">
               <label for="item">事项</label>
               <input
+                name="title"
                 type="text"
                 class="form-control"
                 id="item"
@@ -36,6 +37,7 @@
             <div class="form-group">
               <label for="time">发生时间</label>
               <input
+                name="time"
                 type="text"
                 class="form-control"
                 id="time"
@@ -43,14 +45,17 @@
             </div>
             <div class="form-group">
               <label for="type">类型</label>
-              <select class="form-control" id="type">
-                <option value="">支出</option>
-                <option value="">收入</option>
+              <select
+                name="type"
+                class="form-control" id="type">
+                <option value="-1">支出</option>
+                <option value="1">收入</option>
               </select>
             </div>
             <div class="form-group">
               <label for="account">金额</label>
               <input
+                name="account"
                 type="text"
                 class="form-control"
                 id="account"
@@ -59,14 +64,16 @@
             
             <div class="form-group">
               <label for="remarks">备注</label>
-              <textarea class="form-control" id="remarks"></textarea>
+              <textarea
+                name="remarks"
+                class="form-control" id="remarks"></textarea>
             </div>
             <hr>
             <button type="submit" class="btn btn-primary btn-block">添加</button>
           </form>
         </div>
       </div>
-    </div
+    </div>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap-datepicker.min.js"></script>

@@ -2,7 +2,7 @@
  * Author  Giuly.Zhang
  * Date  2026-05-09 11:16:46
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-14 15:34:15
+ * LastEditTime  2026-05-14 16:02:55
  * Description
  */
 var express = require("express");
@@ -31,8 +31,9 @@ router.get("/", function (req, res, next) {
 
 // 记账本列表
 router.get("/list", (req, res) => {
-  // res.send("记账本列表");
-  res.render("list");
+  // 8.获取账单数据
+  const accounts = db.get("accounts").value();
+  res.render("list", { accounts });
 });
 
 // 添加记录
@@ -50,8 +51,19 @@ router.post("/list", (req, res) => {
   db.get("accounts")
     .unshift({ id, ...req.body })
     .write();
-  res.send("新增表单提交");
-  // res.render("create");
+  // 7.跳转列表页
+  res.render("success", { msg: "新增成功", url: "/list" });
+});
+
+// 删除表单
+router.get("/list/:id", (req, res) => {
+  // 9.获取删除的id
+  const id = req.params.id;
+  console.log(id);
+  // 10.s删除数据
+  db.get("accounts").remove({ id }).write();
+  // 11.跳转列表页
+  res.render("success", { msg: "删除成功", url: "/list" });
 });
 
 module.exports = router;

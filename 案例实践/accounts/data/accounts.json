@@ -1,15 +1,23 @@
 {
   "accounts": [
     {
-      "id": "LIR_Jlc7_",
-      "title": "1231",
-      "time": "2026-05-13",
-      "type": "-1",
-      "account": "123",
-      "remarks": "12312312313"
+      "id": "BG5SowCia",
+      "title": "兼职",
+      "time": "2026-05-12",
+      "type": "1",
+      "account": "2000",
+      "remarks": "很高兴"
     },
     {
-      "id": "vGUzpiTgT",
+      "id": "VBN_Zkx84",
+      "title": "发工资",
+      "time": "2026-05-12",
+      "type": "1",
+      "account": "1231231",
+      "remarks": "高兴"
+    },
+    {
+      "id": "LIR_Jlc7_",
       "title": "1231",
       "time": "2026-05-13",
       "type": "-1",

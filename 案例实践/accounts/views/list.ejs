@@ -2,7 +2,7 @@
  * Author  Giuly.Zhang
  * Date  2026-05-13 22:14:32
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-13 22:14:33
+ * LastEditTime  2026-05-14 16:00:19
  * Description  
 -->
 <!DOCTYPE html>
@@ -35,23 +35,26 @@
           <h2>记账本</h2>
           <hr />
           <div class="accounts">
-            <div class="panel panel-danger">
-              <div class="panel-heading">2023-04-05</div>
+            <% accounts.forEach(item => { %>
+            <div class="panel <%= item.type === '-1' ? 'panel-danger' : 'panel-success' %>">
+              <div class="panel-heading"><%= item.time %></div>
               <div class="panel-body">
-                <div class="col-xs-6">抽烟只抽煊赫门，一生只爱一个人</div>
+                <div class="col-xs-6"><%= item.title %></div>
                 <div class="col-xs-2 text-center">
-                  <span class="label label-warning">支出</span>
+                  <span class="label <%= item.type === '-1' ? 'label-warning' : 'label-success' %>"><%= item.type === '-1' ? '支出' : '收入' %></span>
                 </div>
-                <div class="col-xs-2 text-right">25 元</div>
+                <div class="col-xs-2 text-right"><%= item.account %> 元</div>
                 <div class="col-xs-2 text-right">
+                  <a href="/list/<%= item.id %>" class="text-danger">
                   <span
                     class="glyphicon glyphicon-remove"
                     aria-hidden="true"
-                  ></span>
+                  ></span></a>
                 </div>
               </div>
             </div>
-            <div class="panel panel-success">
+            <% }) %>
+            <!-- <div class="panel panel-success">
               <div class="panel-heading">2023-04-15</div>
               <div class="panel-body">
                 <div class="col-xs-6">3 月份发工资</div>
@@ -66,7 +69,7 @@
                   ></span>
                 </div>
               </div>
-            </div>
+            </div> -->
             
           </div>
         </div>

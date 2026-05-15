@@ -2,7 +2,7 @@
  * Author  Giuly.Zhang
  * Date  2026-05-15 22:18:03
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-15 22:20:28
+ * LastEditTime  2026-05-15 22:50:38
  * Description
  */
 const mongoose = require("mongoose");
@@ -21,7 +21,7 @@ const AccountsSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  rmark: {
+  remarks: {
     type: String,
     default: "",
   },

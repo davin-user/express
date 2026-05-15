@@ -2,7 +2,7 @@
  * Author  Giuly.Zhang
  * Date  2026-05-14 22:39:17
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-14 23:01:51
+ * LastEditTime  2026-05-15 11:58:44
  * Description
  */
 // 1.导入mongoose模块
@@ -27,3 +27,6 @@ mongoose.connection.on("close", () => {
 });
 
 // 关闭数据库连接
+setTimeout(() => {
+  mongoose.disconnect();
+}, 5000);

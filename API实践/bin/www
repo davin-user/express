@@ -2,7 +2,7 @@
  * Author  Giuly.Zhang
  * Date  2026-05-13 21:51:38
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-15 22:10:53
+ * LastEditTime  2026-05-16 16:09:42
  * Description
  */
 // #!/usr/bin/env node
@@ -95,6 +95,6 @@ db(() => {
   function onListening() {
     var addr = server.address();
     var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-    debug("Listening on " + bind);
+    // debug("Listening on " + bind);
   }
 });

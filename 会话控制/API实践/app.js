@@ -2,25 +2,25 @@
  * Author  Giuly.Zhang
  * Date  2026-05-16 11:54:36
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-17 16:04:14
+ * LastEditTime  2026-05-17 21:29:20
  * Description
  */
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 
 const session = require("express-session");
 const MongoStore = require("connect-mongo").default;
 const { DBHOST, DBPORT, DBNAME } = require("./database/config/config");
 
-var indexRouter = require("./routes/web/index");
-var accountsRouter = require("./routes/api/api");
+const indexRouter = require("./routes/web/index");
+const accountsRouter = require("./routes/api/api");
 const loginRouter = require("./routes/web/auth");
 const authRouter = require("./routes/web/auth");
 
-var app = express();
+const app = express();
 
 // 设置sesssion的中间件
 app.use(
@@ -54,9 +54,10 @@ app.use("/api", accountsRouter);
 app.use("/", loginRouter);
 app.use("/", authRouter);
 
-// catch 404 and forward to error handler
+// 设置404中间件
 app.use(function (req, res, next) {
-  next(createError(404));
+  // next(createError(404));
+  res.render("404");
 });
 
 // error handler

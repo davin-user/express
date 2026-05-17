@@ -2,16 +2,16 @@
  * Author  Giuly.Zhang
  * Date  2026-05-09 11:16:46
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-17 16:18:53
+ * LastEditTime  2026-05-17 21:28:39
  * Description
  */
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const moment = require("moment");
 const AccountModel = require("../../database/model/AccountsModel");
 const checkLoginMiddleware = require("../../middleware/checkLoginMiddleware");
 
-/* GET home page. */
+/* 重定向到记账本列表 */
 router.get("/", function (req, res, next) {
   res.render("list");
 });

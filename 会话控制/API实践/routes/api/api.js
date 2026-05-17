@@ -2,12 +2,13 @@
  * Author  Giuly.Zhang
  * Date  2026-05-16 11:38:38
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-16 16:16:31
+ * LastEditTime  2026-05-17 22:58:31
  * Description
  */
 var express = require("express");
 var router = express.Router();
 const moment = require("moment");
+const checkTokenMiddleware = require("../../middleware/checkTokenMiddleware");
 const AccountModel = require("../../database/model/AccountsModel");
 
 /* GET home page. */
@@ -16,9 +17,11 @@ router.get("/", function (req, res, next) {
 });
 
 // 获取账单列表
-router.get("/list", (req, res) => {
+router.get("/list", checkTokenMiddleware, (req, res) => {
+  // 从req.user中获取用户的信息
+  const { username, _id } = req.user;
   // 获取mongodb中的数据库
-  AccountModel.find()
+  AccountModel.find({ userId: _id })
     .sort({ time: -1 })
     .then((data) => {
       // res.render("list", { accounts: data, moment });
@@ -39,12 +42,12 @@ router.get("/list", (req, res) => {
 });
 
 // 添加记录
-router.get("/list/create", (req, res) => {
+router.get("/list/create", checkTokenMiddleware, (req, res) => {
   res.render("create");
 });
 
 // 新增账单
-router.post("/list", (req, res) => {
+router.post("/list", checkTokenMiddleware, (req, res) => {
   // 插入到mongoDB数据库中
   AccountModel.create({
     ...req.body,
@@ -93,7 +96,7 @@ router.delete("/list/:id", (req, res) => {
 });
 
 // 获取账单信息
-router.get("/list/:id", (req, res) => {
+router.get("/list/:id", checkTokenMiddleware, (req, res) => {
   const { id } = req.params;
   AccountModel.findById(id)
     .then((data) => {
@@ -113,7 +116,7 @@ router.get("/list/:id", (req, res) => {
 });
 
 // 更新账单信息
-router.patch("/list/:id", async (req, res) => {
+router.patch("/list/:id", checkTokenMiddleware, async (req, res) => {
   // const { id } = req.params;
   // AccountModel.updateOne({ _id: id }, req.body)
   //   .then(() => {

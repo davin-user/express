@@ -2,7 +2,7 @@
  * Author  Giuly.Zhang
  * Date  2026-05-16 11:54:36
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-17 21:29:20
+ * LastEditTime  2026-05-17 22:29:07
  * Description
  */
 const createError = require("http-errors");
@@ -16,9 +16,11 @@ const MongoStore = require("connect-mongo").default;
 const { DBHOST, DBPORT, DBNAME } = require("./database/config/config");
 
 const indexRouter = require("./routes/web/index");
-const accountsRouter = require("./routes/api/api");
 const loginRouter = require("./routes/web/auth");
 const authRouter = require("./routes/web/auth");
+
+const accountsRouter = require("./routes/api/api");
+const authApiRouter = require("./routes/api/auth");
 
 const app = express();
 
@@ -50,9 +52,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/api", accountsRouter);
 app.use("/", loginRouter);
 app.use("/", authRouter);
+
+app.use("/api", accountsRouter);
+app.use("/api", authApiRouter);
 
 // 设置404中间件
 app.use(function (req, res, next) {

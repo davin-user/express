@@ -2,7 +2,7 @@
  * Author  Giuly.Zhang
  * Date  2026-05-17 10:40:13
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-17 16:06:31
+ * LastEditTime  2026-05-17 16:22:51
  * Description
  */
 const express = require("express");
@@ -56,6 +56,14 @@ router.post("/login", (req, res) => {
     .catch((err) => {
       res.status(500).send("登录失败");
     });
+});
+
+// 退出登录
+router.get("/logout", (req, res) => {
+  // 清除session中的用户信息
+  req.session.destroy(() => {
+    res.redirect("/login");
+  });
 });
 
 module.exports = router;

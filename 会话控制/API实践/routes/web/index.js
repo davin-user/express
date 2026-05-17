@@ -2,13 +2,14 @@
  * Author  Giuly.Zhang
  * Date  2026-05-09 11:16:46
  * LastEditors  Giuly.Zhang
- * LastEditTime  2026-05-16 11:39:44
+ * LastEditTime  2026-05-17 16:18:53
  * Description
  */
 var express = require("express");
 var router = express.Router();
 const moment = require("moment");
 const AccountModel = require("../../database/model/AccountsModel");
+const checkLoginMiddleware = require("../../middleware/checkLoginMiddleware");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -16,7 +17,7 @@ router.get("/", function (req, res, next) {
 });
 
 // 记账本列表
-router.get("/list", (req, res) => {
+router.get("/list", checkLoginMiddleware, (req, res) => {
   // 获取mongodb中的数据库
   AccountModel.find()
     .sort({ time: -1 })
@@ -29,12 +30,12 @@ router.get("/list", (req, res) => {
 });
 
 // 添加记录
-router.get("/list/create", (req, res) => {
+router.get("/list/create", checkLoginMiddleware, (req, res) => {
   res.render("create");
 });
 
 // 表单提交
-router.post("/list", (req, res) => {
+router.post("/list", checkLoginMiddleware, (req, res) => {
   // 插入到mongoDB数据库中
   AccountModel.create({
     ...req.body,
@@ -49,7 +50,7 @@ router.post("/list", (req, res) => {
 });
 
 // 删除表单
-router.get("/list/:id", (req, res) => {
+router.get("/list/:id", checkLoginMiddleware, (req, res) => {
   // 9.获取删除的id
   const id = req.params.id;
   AccountModel.deleteOne({ _id: id })
